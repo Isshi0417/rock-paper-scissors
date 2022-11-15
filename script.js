@@ -9,7 +9,7 @@ function getComputerChoice() {
 
 function playRound(playerChoice, computerChoice) {
     if (playerChoice == computerChoice) {
-        return "You draw!";
+        return "You tie!";
     } else if (playerChoice == "rock") {
         if (computerChoice == "paper") {
             computerScore++;
@@ -41,6 +41,13 @@ function game() {
     for (let i = 0; i < 5; i++) {
         let computerChoice = getComputerChoice();
         console.log(playRound(playerChoice, computerChoice));
+    }
+    if (playerScore == computerScore) {
+        console.log("Tie!");
+    } else if (playerScore > computerScore) {
+        console.log("You win!");
+    } else {
+        console.log("You lose!");
     }
     console.log(playerScore);
     console.log(computerScore);
