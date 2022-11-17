@@ -8,13 +8,28 @@ function getComputerChoice() {
     return computerOption[Math.floor(Math.random() * computerOption.length)]
 }
 
+// Player Scoreboard
+const body = document.getElementById('bod');
+const playerBoard = document.createElement('div');
+const pScore = document.createElement('h1');
+pScore.textContent = playerScore;
+body.appendChild(playerBoard);
+playerBoard.appendChild(pScore);
+
+// Play a round of rock paper scissors
 function playRound(playerChoice, computerChoice) {
+
+    // Update Player Score
+    pScore.textContent = playerScore;
+    playerBoard.appendChild(pScore);
+
+    // Random Computer Choice
     computerChoice = getComputerChoice();
     if (playerChoice == computerChoice) {
         console.log("You tie!");
     } else if (playerChoice == "rock") {
         if (computerChoice == "paper") {
-            computerScore++;
+            computerScore;
             console.log("You lose! Paper beats rock");
         } else {
             playerScore++;
@@ -37,6 +52,7 @@ function playRound(playerChoice, computerChoice) {
             console.log("You win! Scissors beats paper");
         }
     }
+    console.log(playerScore);
 }
 
 function game() {
@@ -79,3 +95,6 @@ function scissorsRound() {
     playerChoice = 'scissors';
     playRound(playerChoice, computerChoice);
 }
+
+
+
