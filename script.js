@@ -13,16 +13,30 @@ function getComputerChoice() {
 // Player Scoreboard
 const body = document.getElementById('bod');
 const playerBoard = document.createElement('div');
+body.appendChild(playerBoard);
+
+// Scoreboard Label
+const pLabel = document.createElement('h1');
+pLabel.textContent = 'Player';
+playerBoard.appendChild(pLabel);
+
+// Score
 const pScore = document.createElement('h1');
 pScore.textContent = playerScore;
-body.appendChild(playerBoard);
 playerBoard.appendChild(pScore);
 
 // Computer Scoreboard
 const computerBoard = document.createElement('div');
+body.appendChild(computerBoard);
+
+// Scoreboard Label
+const cLabel = document.createElement('h1');
+cLabel.textContent = 'Computer';
+computerBoard.appendChild(cLabel);
+
+// Score
 const cScore = document.createElement('h1');
 cScore.textContent = computerScore;
-body.appendChild(computerBoard);
 computerBoard.appendChild(cScore);
 
 // Play a round of rock paper scissors
@@ -97,6 +111,7 @@ function playRound(playerChoice, computerChoice) {
     console.log(computerScore);
 }
 
+// Plays a round of rock paper scissors
 function game() {
     let computerChoice = getComputerChoice();
     console.log(playRound(playerChoice, computerChoice));
