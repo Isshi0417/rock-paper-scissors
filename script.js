@@ -16,12 +16,15 @@ pScore.textContent = playerScore;
 body.appendChild(playerBoard);
 playerBoard.appendChild(pScore);
 
+// Computer Scoreboard
+const computerBoard = document.createElement('div');
+const cScore = document.createElement('h1');
+cScore.textContent = computerScore;
+body.appendChild(computerBoard);
+computerBoard.appendChild(cScore);
+
 // Play a round of rock paper scissors
 function playRound(playerChoice, computerChoice) {
-
-    // Update Player Score
-    pScore.textContent = playerScore;
-    playerBoard.appendChild(pScore);
 
     // Random Computer Choice
     computerChoice = getComputerChoice();
@@ -53,6 +56,7 @@ function playRound(playerChoice, computerChoice) {
         }
     }
     console.log(playerScore);
+    console.log(computerScore);
 }
 
 function game() {
