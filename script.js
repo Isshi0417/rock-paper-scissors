@@ -11,7 +11,7 @@ function getComputerChoice() {
 function playRound(playerChoice, computerChoice) {
     computerChoice = getComputerChoice();
     if (playerChoice == computerChoice) {
-        return "You tie!";
+        console.log("You tie!");
     } else if (playerChoice == "rock") {
         if (computerChoice == "paper") {
             computerScore++;
@@ -23,18 +23,18 @@ function playRound(playerChoice, computerChoice) {
     } else if (playerChoice == "paper") {
         if (computerChoice == "scissors") {
             computerScore++;
-            return "You lose! Scissors beats rock";
+            console.log("You lose! Scissors beats paper");
         } else {
             playerScore++;
-            return "You win! Paper beats rock";
+            console.log("You win! Paper beats rock");
         }
     } else if (playerChoice == "scissors") {
         if (computerChoice == "rock") {
             computerScore++;
-            return "You lose! Rock beats scissors";
+            console.log("You lose! Rock beats scissors");
         } else {
             playerScore++;
-            return "You win! Scissors beats paper";
+            console.log("You win! Scissors beats paper");
         }
     }
 }
@@ -53,12 +53,20 @@ function game() {
     console.log(computerScore);
 }
 
+// Choosing Rock
 const rock = document.getElementById('rock');
-rock.addEventListener('click', rockRound);
+rock.addEventListener('click', rockRound); // Add an event when rock button is clicked
 
 function rockRound() {
     playerChoice = 'rock';
     playRound(playerChoice, computerChoice);
-    console.log(playerChoice);
-    console.log(computerChoice);
+}
+
+// Choosing Paper
+const paper = document.getElementById('paper');
+paper.addEventListener('click', paperRound); 
+
+function paperRound() {
+    playerChoice = 'paper';
+    playRound(playerChoice, computerChoice);
 }
