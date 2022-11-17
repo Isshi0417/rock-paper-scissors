@@ -1,9 +1,11 @@
+// Important constants and flexible variables
 const computerOption = ["rock", "paper", "scissors"];
 let playerChoice = '';
 let computerChoice = '';
 let playerScore = 0;
 let computerScore = 0;
 
+// Randomly choose from the rock paper scissors array
 function getComputerChoice() {
     return computerOption[Math.floor(Math.random() * computerOption.length)]
 }
@@ -28,30 +30,66 @@ function playRound(playerChoice, computerChoice) {
 
     // Random Computer Choice
     computerChoice = getComputerChoice();
+
+    // When tied
     if (playerChoice == computerChoice) {
+        // Announce "You tie!"
         console.log("You tie!");
+    // When player chooses rock
     } else if (playerChoice == "rock") {
+        // If computer chooses paper
         if (computerChoice == "paper") {
-            computerScore;
+            // Add one point to the computer's score
+            computerScore++;
+            // Update scoreboard
+            cScore.textContent = computerScore;
+            // Announce "You lose! Paper beats rock"
             console.log("You lose! Paper beats rock");
+        // Otherwise
         } else {
+            // Add one point to the player's score
             playerScore++;
+            // Update scoreboard
+            pScore.textContent = playerScore;
+            // Announce "You win! Rock beats scissors"
             console.log("You win! Rock beats scissors");
         }
+    // When player chooses paper
     } else if (playerChoice == "paper") {
+        // If computer chooses scissors
         if (computerChoice == "scissors") {
+            // Add one point to the computer's score
             computerScore++;
+            // Update scoreboard
+            cScore.textContent = computerScore;
+            // Announce result
             console.log("You lose! Scissors beats paper");
+        // Otherwise
         } else {
+            // Add one point to the player's score
             playerScore++;
+            // Update scoreboard
+            pScore.textContent = playerScore;
+            // Announce result
             console.log("You win! Paper beats rock");
         }
+    // When player chooses scissors
     } else if (playerChoice == "scissors") {
+        // If computer chooses rock
         if (computerChoice == "rock") {
+            // Add one point to the computer's score
             computerScore++;
+            // Update scoreboard
+            cScore.textContent = computerScore;
+            // Announce result
             console.log("You lose! Rock beats scissors");
+        // Otherwise
         } else {
+            // Add one point to the player's score
             playerScore++;
+            // Update scoreboard
+            pScore.textContent = playerScore;
+            // Announce result
             console.log("You win! Scissors beats paper");
         }
     }
