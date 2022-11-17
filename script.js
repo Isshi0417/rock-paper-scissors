@@ -20,7 +20,7 @@ const pLabel = document.createElement('h1');
 pLabel.textContent = 'Player';
 playerBoard.appendChild(pLabel);
 
-// Score
+// Player Score
 const pScore = document.createElement('h1');
 pScore.textContent = playerScore;
 playerBoard.appendChild(pScore);
@@ -34,16 +34,37 @@ const cLabel = document.createElement('h1');
 cLabel.textContent = 'Computer';
 computerBoard.appendChild(cLabel);
 
-// Score
+// Computer Score
 const cScore = document.createElement('h1');
 cScore.textContent = computerScore;
 computerBoard.appendChild(cScore);
+
+// Result Board
+const resultBoard = document.createElement('div');
+body.appendChild(resultBoard);
+const result = document.createElement('h1');
+resultBoard.appendChild(result);
+
+
 
 // Play a round of rock paper scissors
 function playRound(playerChoice, computerChoice) {
 
     // Random Computer Choice
     computerChoice = getComputerChoice();
+
+    // Winning Score
+    if (playerScore == 5) {
+        // Announce Winner
+        result.textContent = 'You Win!';
+        return;
+    }
+
+    if (computerScore == 5) {
+        // Announce Winner
+        result.textContent = 'You lose!';
+        return;
+    }
 
     // When tied
     if (playerChoice == computerChoice) {
@@ -107,8 +128,6 @@ function playRound(playerChoice, computerChoice) {
             console.log("You win! Scissors beats paper");
         }
     }
-    console.log(playerScore);
-    console.log(computerScore);
 }
 
 // Plays a round of rock paper scissors
