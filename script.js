@@ -1,5 +1,6 @@
 const computerOption = ["rock", "paper", "scissors"];
-const playerChoice = "rock";
+let playerChoice = '';
+let computerChoice = '';
 let playerScore = 0;
 let computerScore = 0;
 
@@ -8,15 +9,16 @@ function getComputerChoice() {
 }
 
 function playRound(playerChoice, computerChoice) {
+    computerChoice = getComputerChoice();
     if (playerChoice == computerChoice) {
         return "You tie!";
     } else if (playerChoice == "rock") {
         if (computerChoice == "paper") {
             computerScore++;
-            return "You lose! Paper beats rock";
+            console.log("You lose! Paper beats rock");
         } else {
             playerScore++;
-            return "You win! Rock beats scissors";
+            console.log("You win! Rock beats scissors");
         }
     } else if (playerChoice == "paper") {
         if (computerChoice == "scissors") {
@@ -38,10 +40,8 @@ function playRound(playerChoice, computerChoice) {
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        let computerChoice = getComputerChoice();
-        console.log(playRound(playerChoice, computerChoice));
-    }
+    let computerChoice = getComputerChoice();
+    console.log(playRound(playerChoice, computerChoice));
     if (playerScore == computerScore) {
         console.log("Tie!");
     } else if (playerScore > computerScore) {
@@ -53,4 +53,12 @@ function game() {
     console.log(computerScore);
 }
 
-game();
+const rock = document.getElementById('rock');
+rock.addEventListener('click', rockRound);
+
+function rockRound() {
+    playerChoice = 'rock';
+    playRound(playerChoice, computerChoice);
+    console.log(playerChoice);
+    console.log(computerChoice);
+}
