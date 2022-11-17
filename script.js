@@ -70,3 +70,12 @@ function paperRound() {
     playerChoice = 'paper';
     playRound(playerChoice, computerChoice);
 }
+
+// Choosing Scissors
+const scissors = document.getElementById('scissors');
+scissors.addEventListener('click', scissorsRound);
+
+function scissorsRound() {
+    playerChoice = 'scissors';
+    playRound(playerChoice, computerChoice);
+}
